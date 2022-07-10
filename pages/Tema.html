@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DNS</title>
+    <link rel="icon" href="images/index.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name = "Author" content="Edgar Lopez">
+    <meta name="Description" content="¿Que es DNS?">
+    <meta name="Keyworlds" content="programacion, aprendice">
+    <meta name="Robots" content="index,follow">
+</head>
+<body>
+    <table cellspacing="10" cellpadding="20">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Concepto de DNS</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><p>Cuando se quiere acceder a una página web en Internet se necesita la 
+                    dirección IP del servidor donde está almacenada, pero, por regla general, 
+                    el usuario solo conoce el nombre del dominio. La razón no es otra que la 
+                    dificultad de recordar las series numéricas del tipo <strong>93.184.216.34</strong> 
+                    que las componen, que son las que, precisamente, constituyen la base de la 
+                    comunicación en Internet. Es por este motivo por el que las direcciones IP se 
+                    “traducen” en nombres que podamos recordar, los llamados <strong>dominios</strong>:</p>
+                    <ul>
+                        <li><strong><em>Dirección IP:</em></strong> 93.184.216.34</li>
+                        <li><strong><em>Dominio:</em></strong> www.ejemplo.es</li>
+                    </ul>
+                    <p>El Sistema de Nombres de Dominio (<strong>Domain Name Space</strong>) es un sistema de 
+                        nomenclatura jerárquico que se ocupa de la administración del espacio de nombres de 
+                        dominio. Su labor primordial consiste en resolver las peticiones de asignación de nombres. 
+                        Esta función se podría explicar mediante una comparación con un servicio telefónico de 
+                        información que dispone de datos de contacto actuales y los facilita cuando alguien los 
+                        solicita. Para ello, el sistema de nombres de dominio recurre a una <em>red global de 
+                        servidores DNS</em>, que subdividen el espacio de nombres en zonas administradas de forma 
+                        independiente las unas de las otras. Esto permite la gestión descentralizada de la 
+                        información de los dominios.</p>
+                    <p>Cada vez que un usuario registra un dominio, se crea una entrada <strong>WHOIS</strong> en el registro 
+                        correspondiente y esta queda almacenada en el DNS como un “<strong>resource record</strong>”. La base de 
+                        datos de un servidor DNS se convierte, así, en la compilación de todos los registros de 
+                        la zona del espacio de nombres de dominio que gestiona.</p>
+                        
+                    <p>Por ejemplo, al escribir en el navegador nic.ar, el DNS resuelve esta consulta 
+                            haciendo una traducción de nombre (dominio) a numero (IP) para así traer el 
+                            contenido que está alojado en dicha dirección web.</p>
+                </td>
+            </tr>
+            <tr>
+                <th><img src="./images/imagen.png" alt="Circuito de DNS"></th>
+            </tr>
+            <tr>
+                <td><h2>Breve Historia</h2>
+                    <p>La creación del sistema de nombres de dominio en 1983 sustituyó al procedimiento anterior 
+                        de resolución, muy propenso a errores y basado en un archivo local de hosts. Este archivo 
+                        hosts.txt puede encontrarse aún hoy en sistemas basados en <em>UNIX</em> en el directorio etc/ y, 
+                        en computadores <em>Windows</em>, en %SystemRoot%\system32\drivers\etc.</p>
+                    <p>El archivo hosts.txt requería el mantenimiento manual y una actualización regular, un 
+                        esfuerzo que, a medida que Internet iba creciendo de forma exponencial, ya no era posible 
+                        realizar. Hoy, este archivo se usa exclusivamente para la clasificación de <strong>direcciones IP</strong> 
+                        en redes locales. También permite bloquear servidores web desviando automáticamente su 
+                        dirección hacia el alojamiento local (<strong><em>local host</em></strong>)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Peticiones DNS</h2>
+                    <p>Cuando se introduce la dirección de una página web (<strong>URL</strong>) en el campo de búsqueda del 
+                        navegador, este realiza una petición al llamado resolver, un componente especial 
+                        del sistema operativo cuya función consiste en almacenar en caché direcciones IP 
+                        ya solicitadas anteriormente, y proporcionarlas cuando la aplicación <em>cliente</em> 
+                        (navegador, programa de correo) la solicita. Si la dirección IP solicitada no se 
+                        encuentra en el caché del resolver, este redirige la petición al servidor DNS 
+                        que corresponda, que, en general, se trata del servidor DNS del proveedor de 
+                        Internet. Aquí se coteja la petición con la base de datos del DNS y, si está 
+                        disponible, se envía la dirección IP correspondiente como respuesta (“<strong><em>forward lookup</em></strong>”). 
+                        Esta permite al navegador del usuario dirigirse al servidor web deseado en Internet. 
+                        Otra vía alternativa consiste en el camino inverso, es decir, en traducir la dirección 
+                        IP en la dirección de dominio (“<strong><em>reverse lookup</em></strong>”). </p>
+                        <p>Si un servidor DNS no puede responder a una petición con la información de 
+                            que dispone en su base de datos, puede solicitar la información a otro servidor 
+                            o reenviar la petición al servidor DNS que corresponda. Esta resolución se 
+                            puede realizar de dos formas:</p>
+                        <table border="1" cellpadding="20">
+                            <thead>
+                                <th>Resolución recursiva</th>
+                                <th>Resolución iterativa</th>
+                            </thead>
+                            <tbody>
+                                <td>
+                                    <p>Se produce cuando el servidor DNS no puede responder por sí mismo a 
+                                    una petición y toma la información de otro servidor. El resolver 
+                                    transfiere la petición completa a su servidor DNS, que proporciona 
+                                    a su vez la respuesta al resolver con el nombre de dominio, si 
+                                    se ha resuelto</p>
+                                </td>
+                                <td>
+                                    <p>Cuando el servidor DNS no puede resolver la petición, envía 
+                                        como respuesta la dirección del siguiente servidor DNS de la 
+                                        jerarquía. El resolver tiene que enviar él mismo una nueva 
+                                        petición y repetir la maniobra hasta que se resuelve el 
+                                        nombre de dominio.</p>
+                                </td>
+                            </tbody>
+                        </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+                <tr>
+                    <th colspan="2">
+                            <img src="./images/recursive-iterative.png" alt="Resolucion recursiva e Interativa" width="75%">
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                        <p>Fuente:</p><a href="https://platzi.com/tutoriales/1277-redes/9167-el-servidor-dns-y-la-resolucion-de-nombres-en-internet/?gclid=CjwKCAjwwdWVBhA4EiwAjcYJEHqA62j874dGyjjACTcVeJpkfKHnjQmZr_PW96i9Dsl5YMHyqeKF2xoCN8sQAvD_BwE&gclsrc=aw.ds">¿Que es el Servidor DNS?</a><br>
+                    </td>
+                </tr>
+            </tfoot>
+    </table>  
+    
+</body> 
+</html>
