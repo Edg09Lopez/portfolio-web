@@ -33,8 +33,22 @@ body{
 .card-title {
     text-align: center;
 }
-.card-text{
+.card-text {
     text-align: center;
+}
+.col{
+    text-align: center;
+}
+.bi {
+    width: 2rem;
+    height: 2rem;
+}
+.bi-house-door-fill,.bi-envelope-fill {
+    color: red;
+}
+
+.bi-whatsapp {
+    color: green;
 }
 /* iconos redes sociales*/
 .social-icons {
